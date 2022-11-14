@@ -10,7 +10,7 @@ const Footer = () => {
   return <div className={styles.footer}>
     <div className={styles.rows}>
       <div className={styles.left}>
-        <h4>Thông tin hỗ trợ</h4>
+        <h5>Thông tin hỗ trợ</h5>
         <div className={styles.email}>
           <FaFacebook/>
           <p>trancongtai997@gmail.com</p>
@@ -22,7 +22,7 @@ const Footer = () => {
         
       </div>
       <div className={styles.center}>
-        <h4>Chăm Sóc Khách Hàng</h4>
+        <h5>Chăm Sóc Khách Hàng</h5>
       </div>
       <div className={styles.right}>
         

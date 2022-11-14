@@ -19,7 +19,7 @@ const Reset = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
         setIsLoading(false);
-        toast.success("Check your email for a reset link");
+        toast.success("Kiểm tra email của bạn để đặt lại mật khẩu");
       })
       .catch((error) => {
         setIsLoading(false);
@@ -31,9 +31,9 @@ const Reset = () => {
     <>
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
-        <div className={styles.img}>
+        {/* <div className={styles.img}>
           <img src={resetImg} alt="Reset Password" width="400" />
-        </div>
+        </div> */}
 
         <Card>
           <div className={styles.form}>
@@ -48,15 +48,15 @@ const Reset = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <button type="submit" className="--btn --btn-primary --btn-block">
-                Reset Password
+              <button type="submit" style={{background: "orangered"}}className="--btn --btn-primary --btn-block">
+                Đặt lại mật khẩu
               </button>
               <div className={styles.links}>
                 <p>
-                  <Link to="/login">- Login</Link>
+                  <Link to="/login">- Đăng Nhập</Link>
                 </p>
                 <p>
-                  <Link to="/register">- Register</Link>
+                  <Link to="/register">- Đăng Ký</Link>
                 </p>
               </div>
             </form>

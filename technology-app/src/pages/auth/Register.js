@@ -19,7 +19,7 @@ const Register = () => {
   const registerUser = (e) => {
     e.preventDefault();
     if (password !== cPassword) {
-      toast.error("Passwords do not match.");
+      toast.error("Mật khẩu không hợp lệ");
     }
     setIsLoading(true);
 
@@ -28,7 +28,7 @@ const Register = () => {
         const user = userCredential.user;
         console.log(user);
         setIsLoading(false);
-        toast.success("Registration Successful...");
+        toast.success("Đăng Ký thành công...");
         navigate("/login");
       })
       .catch((error) => {
@@ -43,7 +43,7 @@ const Register = () => {
       <section className={`container ${styles.auth}`}>
         <Card>
           <div className={styles.form}>
-            <h2>Register</h2>
+            <h2>Đăng Ký</h2>
 
             <form onSubmit={registerUser}>
               <input
@@ -55,32 +55,32 @@ const Register = () => {
               />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder="Mật khẩu"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <input
                 type="password"
-                placeholder="Confirm Password"
+                placeholder="Xác nhận mật khẩu"
                 required
                 value={cPassword}
                 onChange={(e) => setCPassword(e.target.value)}
               />
-              <button type="submit" className="--btn --btn-primary --btn-block">
-                Register
+              <button type="submit" style={{background: "orangered"}}className="--btn --btn-primary --btn-block">
+                Đăng ký
               </button>
             </form>
 
             <span className={styles.register}>
-              <p>Already an account?</p>
-              <Link to="/login">Login</Link>
+              <p>Bạn đã có tài khoản?</p>
+              <Link to="/login">Đăng Nhập</Link>
             </span>
           </div>
         </Card>
-        <div className={styles.img}>
+        {/* <div className={styles.img}>
           <img src={registerImg} alt="Register" width="400" />
-        </div>
+        </div> */}
       </section>
     </>
   );

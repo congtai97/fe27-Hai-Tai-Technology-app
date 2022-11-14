@@ -48,9 +48,9 @@ const ProductDetails = () => {
   return (
     <section>
       <div className={`container ${styles.product}`}>
-        <h2>Product Details</h2>
+        <h2>Chi tiết Sản Phẩm</h2>
         <div>
-          <Link to="/#products">&larr; Back To Products</Link>
+          <Link to="/#products">&larr; Quay lại Sản Phẩm</Link>
         </div>
         {product === null ? (
           <img src={spinnerImg} alt="Loading" style={{ width: "50px" }} />
@@ -65,10 +65,10 @@ const ProductDetails = () => {
                 <p className={styles.price}>{`${product.price} vnđ`}</p>
                 <p>{product.desc}</p>
                 <p>
-                  <b>SKU</b> {product.id}
+                  <b>Mã SP</b> {product.id}
                 </p>
                 <p>
-                  <b>Brand</b> {product.brand}
+                  <b>Nhãn Hiệu</b> {product.brand}
                 </p>
 
                 <div className={styles.count}>
@@ -96,17 +96,17 @@ const ProductDetails = () => {
                   className="--btn --btn-danger"
                   onClick={() => addToCart(product)}
                 >
-                  ADD TO CART
+                  Thêm Vào Giỏ Hàng
                 </button>
               </div>
             </div>
           </>
         )}
         <Card cardClass={styles.card}>
-          <h3>Product Reviews</h3>
+          <h3>Đánh Giá Sản Phẩm</h3>
           <div>
             {filteredReviews.length === 0 ? (
-              <p>There are no reviews for this product yet.</p>
+              <p>Hiện không có đánh giá nào về Sản Phẩm!</p>
             ) : (
               <>
                 {filteredReviews.map((item, index) => {

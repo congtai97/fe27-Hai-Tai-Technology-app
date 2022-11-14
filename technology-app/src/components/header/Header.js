@@ -103,7 +103,7 @@ const Header = () => {
   const cart = (
     <span className={styles.cart}>
       <Link to="/cart">
-        Cart
+        Giỏ Hàng
         <FaShoppingCart size={20} />
         <p>{cartTotalQuantity}</p>
       </Link>
@@ -138,18 +138,18 @@ const Header = () => {
               <li>
                 <AdminOnlyLink>
                   <Link to="/admin/home">
-                    <button className="--btn --btn-primary">Admin</button>
+                    <button style={{background: "orangered"}} className="--btn --btn-primary">Admin</button>
                   </Link>
                 </AdminOnlyLink>
               </li>
               <li>
                 <NavLink to="/" className={activeLink}>
-                  Home
+                  Trang Chủ
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/contact" className={activeLink}>
-                  Contact Us
+                  Liên Hệ
                 </NavLink>
               </li>
             </ul>
@@ -157,7 +157,7 @@ const Header = () => {
               <span className={styles.links}>
                 <ShowOnLogout>
                   <NavLink to="/login" className={activeLink}>
-                    Login
+                    Đăng Nhập
                   </NavLink>
                 </ShowOnLogout>
                 <ShowOnLogin>
@@ -168,12 +168,12 @@ const Header = () => {
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/order-history" className={activeLink}>
-                    My Orders
+                    Đơn Hàng
                   </NavLink>
                 </ShowOnLogin>
                 <ShowOnLogin>
                   <NavLink to="/" onClick={logoutUser}>
-                    Logout
+                    Đăng Xuất
                   </NavLink>
                 </ShowOnLogin>
               </span>

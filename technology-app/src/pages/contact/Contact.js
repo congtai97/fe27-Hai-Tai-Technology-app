@@ -34,34 +34,34 @@ const Contact = () => {
   return (
     <section>
       <div className={`container ${styles.contact}`}>
-        <h2>Contact Us</h2>
+        <h2>Liên hệ chùng tôi</h2>
         <div className={styles.section}>
           <form ref={form} onSubmit={sendEmail}>
             <Card cardClass={styles.card}>
-              <label>Name</label>
+              <label>Tên</label>
               <input
                 type="text"
                 name="user_name"
-                placeholder="Full Name"
+                placeholder="Tên đầy đủ"
                 required
               />
               <label>Email</label>
               <input
                 type="email"
                 name="user_email"
-                placeholder="Your active email"
+                placeholder="Email hoạt động của bạn"
                 required
               />
-              <label>Subject</label>
+              <label>Chủ đề</label>
               <input
                 type="text"
                 name="subject"
-                placeholder="Subject"
+                placeholder="Chủ đề"
                 required
               />
-              <label>Message</label>
+              <label>Thông điệp</label>
               <textarea name="message" cols="30" rows="10"></textarea>
-              <button className="--btn --btn-primary">Send Message</button>
+              <button style={{background: "orangered"}} className="--btn --btn-primary">Gửi</button>
             </Card>
           </form>
 

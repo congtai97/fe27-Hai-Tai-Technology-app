@@ -52,7 +52,7 @@ const ProductList = ({ products }) => {
           <FaListAlt size={24} color="#0066d4" onClick={() => setGrid(false)} />
 
           <p>
-            <b>{filteredProducts.length}</b> Products found.
+            <b>{filteredProducts.length}</b> Sản phẩm được tìm thấy.
           </p>
         </div>
         {/* Search Icon */}
@@ -61,11 +61,11 @@ const ProductList = ({ products }) => {
         </div>
         {/* Sort Products */}
         <div className={styles.sort}>
-          <label>Sort by:</label>
+          <label>Sắp xếp theo:</label>
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="latest">Latest</option>
-            <option value="lowest-price">Lowest Price</option>
-            <option value="highest-price">Highest Price</option>
+            <option value="latest">Mới nhất</option>
+            <option value="lowest-price">Giá thấp nhất</option>
+            <option value="highest-price">Giá Cao Nhất</option>
             <option value="a-z">A - Z</option>
             <option value="z-a">Z - A</option>
           </select>
@@ -74,7 +74,7 @@ const ProductList = ({ products }) => {
 
       <div className={grid ? `${styles.grid}` : `${styles.list}`}>
         {products.lenght === 0 ? (
-          <p>No product found.</p>
+          <p>Không tìm thấy sản phẩm!</p>
         ) : (
           <>
             {currentProducts.map((product) => {

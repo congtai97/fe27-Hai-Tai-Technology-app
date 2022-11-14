@@ -65,9 +65,9 @@ const Login = () => {
     <>
       {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
-        <div className={styles.img}>
+        {/* <div className={styles.img}>
           <img src={loginImg} alt="Login" width="400" />
-        </div>
+        </div> */}
 
         <Card>
           <div className={styles.form}>
@@ -89,10 +89,10 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button type="submit" className="--btn --btn-primary --btn-block">
-                Login
+                Đăng Nhập
               </button>
               <div className={styles.links}>
-                <Link to="/reset">Reset Password</Link>
+                <Link to="/reset">Đặt lại mật khẩu</Link>
               </div>
               <p>-- or --</p>
             </form>
@@ -100,11 +100,11 @@ const Login = () => {
               className="--btn --btn-danger --btn-block"
               onClick={signInWithGoogle}
             >
-              <FaGoogle color="#fff" /> Login With Google
+              <FaGoogle color="#fff" /> Đăng Nhập với Google
             </button>
             <span className={styles.register}>
-              <p>Don't have an account?</p>
-              <Link to="/register">Register</Link>
+              <p>Bạn không có tài khoản?</p>
+              <Link to="/register">Đăng ký</Link>
             </span>
           </div>
         </Card>

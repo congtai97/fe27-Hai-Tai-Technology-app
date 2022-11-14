@@ -58,47 +58,47 @@ const CheckoutDetails = () => {
   return (
     <section>
       <div className={`container ${styles.checkout}`}>
-        <h2>Checkout Details</h2>
+        <h2>Chi tiết Thanh Toán</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <Card cardClass={styles.card}>
-              <h3>Shipping Address</h3>
-              <label>Recipient Name</label>
+              <h3>Địa chỉ giao hàng</h3>
+              <label>Tên người nhận</label>
               <input
                 type="text"
-                placeholder="Recipient Name"
+                placeholder="Tên người nhận"
                 required
                 name="name"
                 value={shippingAddress.name}
                 onChange={(e) => handleShipping(e)}
               />
-              <label>Address line 1</label>
+              <label>Địa chỉ 1</label>
               <input
                 type="text"
-                placeholder="Address line 1"
+                placeholder="Địa chỉ 1"
                 required
                 name="line1"
                 value={shippingAddress.line1}
                 onChange={(e) => handleShipping(e)}
               />
-              <label>Address line 2</label>
+              <label>Địa chỉ 2</label>
               <input
                 type="text"
-                placeholder="Address line 2"
+                placeholder="Địa chỉ 2"
                 name="line2"
                 value={shippingAddress.line2}
                 onChange={(e) => handleShipping(e)}
               />
-              <label>City</label>
+              <label>Thành Phố</label>
               <input
                 type="text"
-                placeholder="City"
+                placeholder="Thành Phố"
                 required
                 name="city"
                 value={shippingAddress.city}
                 onChange={(e) => handleShipping(e)}
               />
-              <label>State</label>
+              {/* <label>State</label>
               <input
                 type="text"
                 placeholder="State"
@@ -106,8 +106,8 @@ const CheckoutDetails = () => {
                 name="state"
                 value={shippingAddress.state}
                 onChange={(e) => handleShipping(e)}
-              />
-              <label>Postal code</label>
+              /> */}
+              {/* <label>Postal code</label>
               <input
                 type="text"
                 placeholder="Postal code"
@@ -115,9 +115,9 @@ const CheckoutDetails = () => {
                 name="postal_code"
                 value={shippingAddress.postal_code}
                 onChange={(e) => handleShipping(e)}
-              />
+              /> */}
               {/* COUNTRY INPUT */}
-              <CountryDropdown
+              {/* <CountryDropdown
                 className={styles.select}
                 valueType="short"
                 value={shippingAddress.country}
@@ -129,11 +129,11 @@ const CheckoutDetails = () => {
                     },
                   })
                 }
-              />
-              <label>Phone</label>
+              /> */}
+              <label>Số Điện Thoại</label>
               <input
                 type="text"
-                placeholder="Phone"
+                placeholder="Số điện Thoại"
                 required
                 name="phone"
                 value={shippingAddress.phone}
@@ -142,7 +142,7 @@ const CheckoutDetails = () => {
             </Card>
             {/* BILLING ADDRESS */}
             <Card cardClass={styles.card}>
-              <h3>Billing Address</h3>
+              {/* <h3>Billing Address</h3>
               <label>Recipient Name</label>
               <input
                 type="text"
@@ -197,7 +197,7 @@ const CheckoutDetails = () => {
                 onChange={(e) => handleBilling(e)}
               />
               {/* COUNTRY INPUT */}
-              <CountryDropdown
+              {/* <CountryDropdown
                 className={styles.select}
                 valueType="short"
                 value={billingAddress.country}
@@ -218,13 +218,13 @@ const CheckoutDetails = () => {
                 name="phone"
                 value={billingAddress.phone}
                 onChange={(e) => handleBilling(e)}
-              />
-              <button type="submit" className="--btn --btn-primary">
-                Proceed To Checkout
+              /> */}
+              <button type="submit" style={{background: "orangered"}} className="--btn --btn-primary">
+                Thanh toán
               </button>
             </Card>
           </div>
-          <div>
+          <div> 
             <Card cardClass={styles.card}>
               <CheckoutSummary />
             </Card>

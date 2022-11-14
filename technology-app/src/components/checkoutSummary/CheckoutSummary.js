@@ -16,32 +16,32 @@ const CheckoutSummary = () => {
 
   return (
     <div>
-      <h3>Checkout Summary</h3>
+      <h3>Chi tiết Thanh toán</h3>
       <div>
         {cartItems.lenght === 0 ? (
           <>
-            <p>No item in your cart.</p>
+            <p>Không có mặt hàng nào trong giỏ hàng.</p>
             <button className="--btn">
-              <Link to="/#products">Back To Shop</Link>
+              <Link to="/#products">Quay lại cửa hàng</Link>
             </button>
           </>
         ) : (
           <div>
             <p>
-              <b>{`Cart item(s): ${cartTotalQuantity}`}</b>
+              <b>{`Mặt hàng trong giỏ: ${cartTotalQuantity}`}</b>
             </p>
             <div className={styles.text}>
-              <h4>Subtotal:</h4>
+              <h4>Tổng:</h4>
               <h3>{cartTotalAmount.toFixed(2)}</h3>
             </div>
             {cartItems.map((item, index) => {
               const { id, name, price, cartQuantity } = item;
               return (
                 <Card key={id} cardClass={styles.card}>
-                  <h4>Product: {name}</h4>
-                  <p>Quantity: {cartQuantity}</p>
-                  <p>Unit price: {price}</p>
-                  <p>Set price: {price * cartQuantity}</p>
+                  <h4>Sản Phẩm: {name}</h4>
+                  <p>Số lượng: {cartQuantity}</p>
+                  <p>Đơn giá: {price}</p>
+                  <p>Thanh toán: {price * cartQuantity}</p>
                 </Card>
               );
             })}

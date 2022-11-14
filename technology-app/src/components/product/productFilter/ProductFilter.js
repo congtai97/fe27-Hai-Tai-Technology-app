@@ -53,7 +53,7 @@ const ProductFilter = () => {
 
   return (
     <div className={styles.filter}>
-      <h4>Categories</h4>
+      <h4>Thể Loại</h4>
       <div className={styles.category}>
         {allCategories.map((cat, index) => {
           return (
@@ -68,7 +68,7 @@ const ProductFilter = () => {
           );
         })}
       </div>
-      <h4>Brand</h4>
+      <h4>Nhãn Hiệu</h4>
       <div className={styles.brand}>
         <select value={brand} onChange={(e) => setBrand(e.target.value)}>
           {allBrands.map((brand, index) => {
@@ -79,7 +79,7 @@ const ProductFilter = () => {
             );
           })}
         </select>
-        <h4>Price</h4>
+        <h4>Giá</h4>
         <p>{`${price} vnđ`}</p>
         <div className={styles.price}>
           <input

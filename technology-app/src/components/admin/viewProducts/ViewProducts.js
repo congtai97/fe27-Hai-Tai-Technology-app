@@ -92,13 +92,13 @@ const ViewProducts = () => {
 
         <div className={styles.search}>
           <p>
-            <b>{filteredProducts.length}</b> products found
+            <b>{filteredProducts.length}</b> Sản phẩm tìm thấy
           </p>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
 
         {filteredProducts.length === 0 ? (
-          <p>No product found.</p>
+          <p>Không tìm thấy sản phẩm.</p>
         ) : (
           <table>
             <thead>

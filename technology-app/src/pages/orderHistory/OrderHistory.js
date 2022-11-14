@@ -28,16 +28,16 @@ const OrderHistory = () => {
   return (
     <section>
       <div className={`container ${styles.order}`}>
-        <h2>Your Order History</h2>
+        <h2>Lịch sử đơn hàng của bạn</h2>
         <p>
-          Open an order to leave a <b>Product Review</b>
+          Mở đơn đặt hàng và để lại <b>Đánh giá Sản Phẩm</b>
         </p>
         <br />
         <>
           {isLoading && <Loader />}
           <div className={styles.table}>
             {filteredOrders.length === 0 ? (
-              <p>No order found</p>
+              <p>Không tìm thấy đơn hàng</p>
             ) : (
               <table>
                 <thead>
