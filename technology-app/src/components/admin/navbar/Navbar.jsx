@@ -14,28 +14,28 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.user}>
         <FaUserCircle size={40} color="#fff" />
-        <h4>{userName}</h4>
+        <h4 style={{ margin: 10 }}>{userName}</h4>
       </div>
       <nav>
         <ul>
           <li>
             <NavLink to="/admin/home" className={activeLink}>
-              Home
+              Trang Chủ
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/all-products" className={activeLink}>
-              All Products
+              Tất Cả Sản Phẩm
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/add-product/ADD" className={activeLink}>
-              Add Product
+              Thêm Sản Phẩm
             </NavLink>
           </li>
           <li>
             <NavLink to="/admin/orders" className={activeLink}>
-              Orders
+              Đơn Hàng
             </NavLink>
           </li>
         </ul>

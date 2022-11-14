@@ -138,34 +138,24 @@ const AddProduct = () => {
     }
   };
 
-  const testAdd = async (e) => {
-    e.preventDefault();
-    console.log("test add");
-    await setDoc(doc(db, "cities", "LA"), {
-      name: "Los Angeles",
-      state: "CA",
-      country: "USA",
-    });
-  }
-
   return (
     <>
       {isLoading && <Loader />}
       <div className={styles.product}>
-        <h2>{detectForm(id, "Add New Product", "Edit Product")}</h2>
+        <h2>{detectForm(id, "Thêm mới Sản Phẩm", "Chỉnh sửa Sản Phẩm")}</h2>
         <Card cardClass={styles.card}>
           <form onSubmit={detectForm(id, addProduct, editProduct)}>
-            <label>Product name:</label>
+            <label>Tên Sản phẩm:</label>
             <input
               type="text"
-              placeholder="Product name"
+              placeholder="Tên Sản phẩm"
               required
               name="name"
               value={product.name}
               onChange={(e) => handleInputChange(e)}
             />
 
-            <label>Product image:</label>
+            <label>Ảnh Sản Phẩm:</label>
             <Card cardClass={styles.group}>
               {uploadProgress === 0 ? null : (
                 <div className={styles.progress}>
@@ -183,7 +173,7 @@ const AddProduct = () => {
               <input
                 type="file"
                 accept="image/*"
-                placeholder="Product Image"
+                placeholder="Ảnh Sản Phẩm"
                 name="image"
                 onChange={(e) => handleImageChange(e)}
               />
@@ -200,16 +190,16 @@ const AddProduct = () => {
               )}
             </Card>
 
-            <label>Product price:</label>
+            <label>Giá Sản Phẩm</label>
             <input
               type="text"
-              placeholder="Product price"
+              placeholder="Giá Sản Phẩm"
               required
               name="price"
               value={product.price}
               onChange={(e) => handleInputChange(e)}
             />
-            <label>Product Category:</label>
+            <label>Loại Sản Phẩm:</label>
             <select
               required
               name="category"
@@ -217,7 +207,7 @@ const AddProduct = () => {
               onChange={(e) => handleInputChange(e)}
             >
               <option value="" disabled>
-                -- choose product category --
+                -- Chọn loại sản phẩm --
               </option>
               {categories.map((cat) => {
                 return (
@@ -228,17 +218,17 @@ const AddProduct = () => {
               })}
             </select>
 
-            <label>Product Company/Brand:</label>
+            <label>Sản Phẩm công ty/ Thương hiệu</label>
             <input
               type="text"
-              placeholder="Product brand"
+              placeholder="Thương hiệu sản phẩm"
               required
               name="brand"
               value={product.brand}
               onChange={(e) => handleInputChange(e)}
             />
 
-            <label>Product Description</label>
+            <label>Mô tả sản phẩm</label>
             <textarea
               name="desc"
               required
@@ -248,13 +238,13 @@ const AddProduct = () => {
               rows="10"
             ></textarea>
 
-            <button className="--btn --btn-primary">
-              {detectForm(id, "Save Product", "Edit Product")}
+            <button
+              style={{ background: "orangered" }}
+              className="--btn --btn-primary"
+            >
+              {detectForm(id, "Lưu Sản Phẩm", "Chỉnh sửa Sản Phẩm")}
             </button>
           </form>
-          <button className="--btn --btn-primary" onClick={testAdd}>
-            Test Add
-            </button>
         </Card>
       </div>
     </>

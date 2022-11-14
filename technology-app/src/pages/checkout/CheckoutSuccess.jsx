@@ -4,12 +4,12 @@ const CheckoutSuccess = () => {
   return (
     <section>
       <div className="container">
-        <h2>Checkout Successful</h2>
-        <p>Thank you for your purchase</p>
+        <h2>Thanh toán thành công</h2>
+        <p>Cảm ơn bạn vì đã mua hàng</p>
         <br />
 
         <button className="--btn --btn-primary">
-          <Link to="/order-history">View Order Status</Link>
+          <Link to="/order-history">Xem trạng thái đơn hàng</Link>
         </button>
       </div>
     </section>
