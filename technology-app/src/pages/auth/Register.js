@@ -67,7 +67,11 @@ const Register = () => {
                 value={cPassword}
                 onChange={(e) => setCPassword(e.target.value)}
               />
-              <button type="submit" style={{background: "orangered"}}className="--btn --btn-primary --btn-block">
+              <button
+                type="submit"
+                style={{ background: "orangered" }}
+                className="--btn --btn-primary --btn-block"
+              >
                 Đăng ký
               </button>
             </form>

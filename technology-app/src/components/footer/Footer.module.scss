@@ -4,19 +4,19 @@
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   height: auto;
   .rows {
     width: 90%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     p {
       color: #fff;
     }
     .left{
       height: 100%;
-      width: 30%;
+     
       h5 {
         color: orangered;
         font-size: 18px;
@@ -33,7 +33,17 @@
     }
     .center {
       height: 100%;
-      width: 30%;
+      ul {
+        list-style:none;
+        display: flex;
+        flex-direction: column;
+        a{
+          font-size: 1.5rem;
+          line-height: 1.3;
+          color: #fff;
+          margin-top: 10px;
+        }
+      }
       h5 {
         color: orangered;
         font-size: 18px;
@@ -47,6 +57,7 @@
     }
   }
   .bottom{
+    font-size: 1.3rem;
     height: 50px;
     width: 80%;
     display: flex;
