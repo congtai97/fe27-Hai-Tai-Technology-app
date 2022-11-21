@@ -1,21 +1,30 @@
 export const sliderData = [
   {
-    image: "https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/r/artboard_1_31.jpg",
+    image: "https://cdn.tgdd.vn/Files/2019/06/14/1173155/laptop_800x450.jpg",
     heading: "",
     desc: "",
   },
   {
-    image: "https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/i/p/iphone-14.png",
+    image:
+      "https://cdn.tgdd.vn/Files/2021/10/30/1394614/thumb-11_1280x720-800-resize.jpg",
     heading: "",
     desc: "",
   },
   {
-    image: "https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/m/a/mac_12.png",
+    image:
+      "https://didong.muatheme.com/wp-content/uploads/2019/01/sam-iphone-trung-chi-vang-didongviet-min-1024x532.jpg",
     heading: "",
     desc: "",
   },
   {
-    image: "https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/r/artboard_1_copy_7_2.jpg",
+    image:
+      "https://bizweb.dktcdn.net/100/420/160/products/cover-bai-viet-1.png?v=1623059846363",
+    heading: "",
+    desc: "",
+  },
+  {
+    image:
+      "https://cdn.tgdd.vn/Files/2021/02/08/1326559/khai-xuan-nhu-y-nhan-ngay-li-xi-gia-dung-giam-s.jpg",
     heading: "",
     desc: "",
   },
