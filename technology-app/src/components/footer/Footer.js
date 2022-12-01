@@ -65,7 +65,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.bottom}>
-        &copy;2022 - Bản quyền thuộc về công ty Eshop
+        &copy;2022 - Bản quyền thuộc về công ty HT-Shop
       </div>
     </div>
   );

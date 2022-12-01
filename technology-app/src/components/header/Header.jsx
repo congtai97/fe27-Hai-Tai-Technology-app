@@ -18,35 +18,32 @@ import {
   CALCULATE_TOTAL_QUANTITY,
   selectCartTotalQuantity,
 } from "../../redux/slice/cartSlice";
-
-const logo = (
-  <div className={styles.logo}>
-    <Link to="/">
-      <h2>
-        e<span>Shop</span>.
-      </h2>
-    </Link>
-  </div>
-);
+import Search from "../search/Search";
+import { FILTER_BY_SEARCH } from "../../redux/slice/filterSlice";
+import { selectProducts } from "../../redux/slice/productSlice";
+import img from "../../assets/logo-shop2.png";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
 const Header = () => {
+  // const { data, isLoading } = useFetchCollection("products");
+  const products = useSelector(selectProducts);
   const [showMenu, setShowMenu] = useState(false);
   const [displayName, setdisplayName] = useState("");
+  const [search, setSearch] = useState("");
   const [scrollPage, setScrollPage] = useState(false);
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
 
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());
   }, []);
-
+  console.log(products);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
   const fixNavbar = () => {
-    if (window.scrollY > 50) {
+    if (window.scrollY > 0) {
       setScrollPage(true);
     } else {
       setScrollPage(false);
@@ -81,6 +78,10 @@ const Header = () => {
     });
   }, [dispatch, displayName]);
 
+  useEffect(() => {
+    dispatch(FILTER_BY_SEARCH({ products, search }));
+  }, [dispatch, products, search]);
+
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -102,11 +103,11 @@ const Header = () => {
 
   const cart = (
     <span className={styles.cart}>
-      <Link to="/cart">
+      <NavLink to="/cart" className={activeLink}>
         Giỏ Hàng
         <FaShoppingCart size={20} />
         <p>{cartTotalQuantity}</p>
-      </Link>
+      </NavLink>
     </span>
   );
 
@@ -114,8 +115,10 @@ const Header = () => {
     <>
       <header className={scrollPage ? `${styles.fixed}` : null}>
         <div className={styles.header}>
-          {logo}
-
+          <Link to="/">
+            <img src={img} style={{ width: 220, height: 60 }} />
+          </Link>
+          {/* {logo} */}
           <nav
             className={
               showMenu ? `${styles["show-nav"]}` : `${styles["hide-nav"]}`
@@ -132,36 +135,68 @@ const Header = () => {
 
             <ul onClick={hideMenu}>
               <li className={styles["logo-mobile"]}>
-                {logo}
                 <FaTimes size={22} color="#fff" onClick={hideMenu} />
               </li>
-              <li>
-                <AdminOnlyLink>
-                  <Link to="/admin/home">
-                    <button style={{background: "orangered"}} className="--btn --btn-primary">Admin</button>
-                  </Link>
-                </AdminOnlyLink>
-              </li>
-              <li>
-                <NavLink to="/" className={activeLink}>
-                  Trang Chủ
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact" className={activeLink}>
-                  Liên Hệ
-                </NavLink>
-              </li>
+              <ul className={styles["header-center"]}>
+                <li className={styles["search"]}>
+                  <Search
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </li>
+                <ul>
+                  {/* <li>
+                    <AdminOnlyLink>
+                      <Link to="/admin/home">
+                        <button
+                          style={{ background: "orangered" }}
+                          className="--btn --btn-primary"
+                        >
+                          Admin
+                        </button>
+                      </Link>
+                    </AdminOnlyLink>
+                  </li> */}
+                  <li>
+                    <NavLink to="/" className={activeLink}>
+                      Trang Chủ
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/about" className={activeLink}>
+                      Giới Thiệu
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/contact" className={activeLink}>
+                      Liên Hệ
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/product" className={activeLink}>
+                      Sản Phẩm
+                    </NavLink>
+                  </li>
+                </ul>
+              </ul>
             </ul>
             <div className={styles["header-right"]} onClick={hideMenu}>
               <span className={styles.links}>
                 <ShowOnLogout>
-                  <NavLink to="/login" className={activeLink}>
-                    Đăng Nhập
-                  </NavLink>
+                  <div className="onlogout">
+                    <NavLink to="/login" className={activeLink}>
+                      Đăng Nhập
+                    </NavLink>
+                    <NavLink
+                      to="/register"
+                      className={`${activeLink} ${styles["border-left"]}`}
+                    >
+                      Đăng Ký
+                    </NavLink>
+                  </div>
                 </ShowOnLogout>
                 <ShowOnLogin>
-                  <a href="#home" style={{ color: "#ff7722" }}>
+                  <a href="#home" style={{ color: "aqua" }}>
                     <FaUserCircle size={16} />
                     Hi, {displayName}
                   </a>

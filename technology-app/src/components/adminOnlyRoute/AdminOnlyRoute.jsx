@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { selectEmail } from "../../redux/slice/authSlice";
 
 const AdminOnlyRoute = ({ children }) => {
   const userEmail = useSelector(selectEmail);
+  const navigate = useNavigate();
 
   if (userEmail === "admin@gmail.com") {
     return children;

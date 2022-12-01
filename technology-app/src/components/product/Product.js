@@ -19,7 +19,7 @@ const Product = () => {
   const [showFilter, setShowFilter] = useState(false);
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
-  // const filteredProducts = useSelector(selectFilteredProducts);
+  const filteredProducts = useSelector(selectFilteredProducts);
   // const [currentPage, setCurrentPage] = useState(1);
   // const [productsPerPage] = useState(6);
   // Get Current Products

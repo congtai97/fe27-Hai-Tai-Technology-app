@@ -1,6 +1,11 @@
+section {
+  background-color: rgb(253, 253, 224);
+}
 .product {
   display: flex;
   position: relative;
+  background-color: rgb(241, 253, 253);
+  padding: 20px;
 
   .filter {
     width: 20%;
