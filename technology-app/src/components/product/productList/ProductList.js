@@ -14,7 +14,7 @@ import Pagination from "../../pagination/Pagination";
 
 const ProductList = ({ products }) => {
   const [grid, setGrid] = useState(true);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const [sort, setSort] = useState("latest");
   const filteredProducts = useSelector(selectFilteredProducts);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,9 +33,9 @@ const ProductList = ({ products }) => {
     dispatch(SORT_PRODUCTS({ products, sort }));
   }, [dispatch, products, sort]);
 
-  useEffect(() => {
-    dispatch(FILTER_BY_SEARCH({ products, search }));
-  }, [dispatch, products, search]);
+  // useEffect(() => {
+  //   dispatch(FILTER_BY_SEARCH({ products, search }));
+  // }, [dispatch, products, search]);
 
   return (
     <div className={styles["product-list"]} id="product">
@@ -54,9 +54,9 @@ const ProductList = ({ products }) => {
           </p>
         </div>
         {/* Search Icon */}
-        <div>
+        {/* <div>
           <Search value={search} onChange={(e) => setSearch(e.target.value)} />
-        </div>
+        </div> */}
         {/* Sort Products */}
         <div className={styles.sort}>
           <label>Sắp xếp theo:</label>

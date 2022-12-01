@@ -2,12 +2,15 @@
   margin: 5px 0;
   position: relative;
   flex: 1;
+  width: 450px;
+
 
   .icon {
     position: absolute;
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+    color: #666;
   }
 
   input[type="text"] {
@@ -17,9 +20,20 @@
     padding: 1rem;
     padding-left: 3rem;
     margin: 1rem auto;
-    width: 100%;
-    border: 1px solid #777;
+    width: 450px;
+    border: 1px solid aqua;
     border-radius: 3px;
     outline: none;
+    box-shadow: 1px 1px 1px rgb(199, 250, 233);
+  }
+
+ 
+}
+@media screen and (max-width: 1200px){
+  .search {
+    max-width: 350px;
+    input {
+      max-width: 350px;
+    }
   }
 }

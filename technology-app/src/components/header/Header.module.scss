@@ -6,15 +6,19 @@
   z-index: 9;
 }
 
+
+
 header {
   width: 100%;
-  background-color: var(--dark-blue);
+  background-color: rgb(255,86,34);
   color: #fff;
-
+  ::marker{
+    color: rgb(255,86,34);
+  }
   .header {
     width: 100%;
-    height: 8rem;
-    max-width: 1000px;
+    height: auto;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1rem;
     display: flex;
@@ -22,35 +26,37 @@ header {
     align-items: center;
     position: relative;
   }
-
-  .logo a h2 {
-    width: 25%;
-    color: #fff;
-    cursor: pointer;
-    span {
-      color: orangered;
-    }
-  }
-
+  
   nav {
     width: 75%;
     display: flex;
     justify-content: space-between;
+    
     ul {
       display: flex;
       justify-content: space-between;
       list-style: none;
-
+      
+      .header-center{
+        display: flex;
+        flex-direction: column;
+        ul{
+          padding-inline-start: 0px;
+          justify-content: space-around;
+          // padding-right: 40px;
+        }
+      }
       .logo-mobile {
         display: none;
       }
-
       li {
         margin: 0 5px;
         a {
           color: #fff;
+          font-size: 1.6rem;
+          font-weight: 500;
           &:hover {
-            color: orangered;
+            color: aqua;
           }
         }
       }
@@ -59,22 +65,24 @@ header {
 
   .header-right {
     display: flex;
-
+    padding-top: 10px;
     .cart a {
       display: flex;
       color: #fff;
       position: relative;
+      font-size: 1.6rem;
+      font-weight: 500;
       &:hover {
-        color: orangered;
+        color: aqua;
       }
-      &.active {
-        color: var(--color-danger);
-      }
+      // &.active {
+      //   background-color: aqua;
+      // }
       p {
         position: absolute;
         top: -1rem;
         right: -1rem;
-        font-weight: 500;
+       
       }
     }
 
@@ -89,11 +97,13 @@ header {
     .links a {
       margin: 0 5px;
       color: #fff;
+      font-size: 1.6rem;
+      font-weight: 500;
       &:hover {
-        color: orangered;
+        color:aqua;
       }
       &.active {
-        color: var(--color-danger);
+        color: aqua;
       }
     }
   }
@@ -103,20 +113,25 @@ header {
     display: none;
   }
 
+
+
   @media screen and (max-width: 800px) {
     nav {
       display: block;
       position: absolute;
       top: 0;
       left: 0;
-      width: 50%;
+      max-width: 50%;
       height: 100vh;
-      background-color: var(--dark-blue);
+      background-color: rgb(255,86,34);
       padding: 1rem;
       z-index: 999;
       transform: translateX(-200%);
       transition: all 0.3s;
-
+      // .search {
+      //   display: block;
+      //   max-width: 50%;
+      // }
       .nav-wrapper {
         position: absolute;
         top: 0;
@@ -134,29 +149,52 @@ header {
 
       ul {
         display: block;
+        padding-right: 0 !important;
+        line-height: 35px;
         .logo-mobile {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          border-bottom: none;
           > * {
             cursor: pointer;
           }
         }
         li {
+          &:hover {
+            background-color: aquamarine;
+          }
+        }
+        .header-center {
+          padding-right: 0px;
+          .search {
+            display: none;
+          }
+         
+        }
+        
+        
+        li {
           padding: 5px 0;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid #fff;
           a {
             display: block;
+            font-weight: 500;
           }
         }
       }
 
       .header-right {
         display: block;
+      font-weight: 500;
+      padding-top: 0;
+      .border-left {
+        border-left: none;
+      }
         .cart {
           // display: block;
           // padding: 5px 0;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid #fff;
           // a {
           //   position: relative;
           //   p {
@@ -173,26 +211,29 @@ header {
           a {
             display: block;
             margin: 0;
-            padding: 5px 0;
-            border-bottom: 1px solid #333;
+            padding: 10px 0;
+            border-bottom: 1px solid #fff;
           }
         }
       }
     }
     .cart {
       display: block;
-      padding: 5px 0;
+      padding: 10px 0;
+      font-size: 1.6rem;
+      position: relative;
       // border-bottom: 1px solid #333;
       a {
         color: #fff;
-        position: relative;
+        
+      font-weight: 500;
         &:hover {
           color: orangered;
         }
         p {
           position: absolute;
-          top: -1rem;
-          left: 5rem;
+          top: -0.5rem;
+          left: 9.3rem;
           font-weight: 500;
           color: #fff;
         }
@@ -215,15 +256,29 @@ header {
 
 .active {
   position: relative;
-  color: var(--color-danger);
+  color: aqua;
+  border-bottom: 1px solid aqua;
 }
 
-.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
+// .active::after {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   bottom: -3px;
+//   width: 100%;
+//   height: 2px;
+//   background-color: #fff;
+// }
+.border-left {
+  border-left: 1px solid #fff;
+  padding-left: 10px;
+}
+@media screen and (max-width: 900px){
+  .header-right {
+    .links {
+      .onlogout {
+        display: flex;
+      }
+    }
+  }
 }
