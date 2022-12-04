@@ -10,10 +10,12 @@
 
 header {
   width: 100%;
-  background-color: var(--color-primary);
+  background-color: rgb(255,86,34);
   color: #fff;
   ::marker{
     color: var(--color-primary);
+  }  ::marker{
+    color: rgb(255,86,34);
   }
   .header {
     width: 100%;
@@ -73,7 +75,7 @@ header {
       font-size: 1.6rem;
       font-weight: 500;
       &:hover {
-        color: var(--color-yellow);
+        color: aqua;
       }
       // &.active {
       //   background-color: aqua;
@@ -100,10 +102,10 @@ header {
       font-size: 1.6rem;
       font-weight: 500;
       &:hover {
-        color:var(--color-yellow);
+        color:aqua;
       }
       &.active {
-        color: var(--color-yellow);
+        color: aqua;
       }
     }
   }
@@ -123,7 +125,7 @@ header {
       left: 0;
       max-width: 50%;
       height: 100vh;
-      background-color: var(--color-primary);
+      background-color: rgb(255,86,34);
       padding: 1rem;
       z-index: 999;
       transform: translateX(-200%);
@@ -162,7 +164,7 @@ header {
         }
         li {
           &:hover {
-            background-color: var(--color-yellow);
+            background-color: aquamarine;
           }
         }
         .header-center {
@@ -228,7 +230,7 @@ header {
         
       font-weight: 500;
         &:hover {
-          color: var(--color-yellow);
+          color: orangered;
         }
         p {
           position: absolute;
@@ -256,8 +258,8 @@ header {
 
 .active {
   position: relative;
-  color: var(--color-yellow);
-  border-bottom: 1px solid var(--color-yellow);
+  color: aqua;
+  border-bottom: 1px solid aqua;
 }
 
 // .active::after {

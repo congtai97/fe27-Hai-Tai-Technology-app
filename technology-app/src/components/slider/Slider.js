@@ -54,7 +54,7 @@ const Slider = () => {
                 <img src={image} alt="slide" />
                 <div className="content">
                   <h2>{heading}</h2>
-                  <h3>{desc}</h3>
+                  <p>{desc}</p>
                   <a
                     href="#product"
                     style={{ background: "orangered" }}
