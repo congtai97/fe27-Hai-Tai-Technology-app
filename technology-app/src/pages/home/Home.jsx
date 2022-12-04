@@ -7,9 +7,9 @@ const Home = () => {
   console.log(url);
   useEffect(() => {
     const scrollToProducts = () => {
-      if (url.includes("#products")) {
+      if (url.includes("s")) {
         window.scrollTo({
-          top: 700,
+          top: 250,
           behavior: "smooth",
         });
         return;
@@ -19,7 +19,6 @@ const Home = () => {
   }, [url]);
 
   return (
-    
     <div>
       <Slider />
       <Product />
