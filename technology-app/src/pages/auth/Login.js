@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./auth.module.scss";
-import loginImg from "../../assets/login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import Card from "../../components/card/Card";
@@ -38,7 +37,7 @@ const Login = () => {
       .then((userCredential) => {
         // const user = userCredential.user;
         setIsLoading(false);
-        toast.success("Login Successful...");
+        toast.success("Đăng nhập thành công.");
         redirectUser();
       })
       .catch((error) => {
@@ -53,7 +52,7 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // const user = result.user;
-        toast.success("Login Successfully");
+        toast.success("Đăng nhập thành công.");
         redirectUser();
       })
       .catch((error) => {

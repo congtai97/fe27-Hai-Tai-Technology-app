@@ -19,6 +19,9 @@ import { async } from "@firebase/util";
 const categories = [
   { id: 1, name: "Laptop" },
   { id: 2, name: "Phone" },
+  { id: 3, name: "Đồng hồ" },
+  { id: 4, name: "Tablet" },
+  { id: 5, name: "Thiết bị điện tử" },
 ];
 
 const initialState = {

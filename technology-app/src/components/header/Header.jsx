@@ -21,7 +21,7 @@ import {
 import Search from "../search/Search";
 import { FILTER_BY_SEARCH } from "../../redux/slice/filterSlice";
 import { selectProducts } from "../../redux/slice/productSlice";
-import img from "../../assets/logo-shop2.png";
+import img from "../../assets/logo-shop3.png";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -55,9 +55,10 @@ const Header = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // console.log(user);
+        console.log(user);
         if (user.displayName == null) {
           const u1 = user.email.slice(0, -10);
+          // console.log(u1.slice(1));
           const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
           setdisplayName(uName);
         } else {

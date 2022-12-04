@@ -10,10 +10,12 @@
 
 header {
   width: 100%;
-  background-color: rgb(255,86,34);
+  background-color: var(--color-primary);
   color: #fff;
   ::marker{
-    color: rgb(255,86,34);
+    color: var(--color-primary);
+  }  ::marker{
+    color: var(--color-primary);
   }
   .header {
     width: 100%;
@@ -123,7 +125,7 @@ header {
       left: 0;
       max-width: 50%;
       height: 100vh;
-      background-color: rgb(255,86,34);
+      background-color: var(--color-primary);
       padding: 1rem;
       z-index: 999;
       transform: translateX(-200%);
@@ -162,7 +164,7 @@ header {
         }
         li {
           &:hover {
-            background-color: aquamarine;
+            background-color: var(--color-primary);
           }
         }
         .header-center {

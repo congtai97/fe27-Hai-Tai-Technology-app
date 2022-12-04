@@ -25,6 +25,7 @@ const AdminOnlyRoute = ({ children }) => {
 };
 
 export const AdminOnlyLink = ({ children }) => {
+  const navigate = useNavigate();
   const userEmail = useSelector(selectEmail);
 
   if (userEmail === "admin@gmail.com") {
