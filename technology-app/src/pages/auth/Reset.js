@@ -1,6 +1,5 @@
 import styles from "./auth.module.scss";
 import { Link } from "react-router-dom";
-import resetImg from "../../assets/forgot.png";
 import Card from "../../components/card/Card";
 import { useState } from "react";
 import { toast } from "react-toastify";
