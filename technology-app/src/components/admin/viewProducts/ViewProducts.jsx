@@ -20,6 +20,7 @@ import {
 } from "../../../redux/slice/filterSlice";
 import Search from "../../search/Search";
 import Pagination from "../../pagination/Pagination";
+import common from "../../../common/common";
 
 const ViewProducts = () => {
   const [search, setSearch] = useState("");
@@ -126,7 +127,7 @@ const ViewProducts = () => {
                     </td>
                     <td>{name}</td>
                     <td>{category}</td>
-                    <td>{`${price} vnđ`}</td>
+                    <td>{`${common.formatPrice(price)} vnđ`}</td>
                     <td className={styles.icons}>
                       <Link to={`/admin/add-product/${id}`}>
                         <FaEdit size={20} color="green" />

@@ -7,6 +7,8 @@ import {
 } from "../../../redux/slice/cartSlice";
 import Card from "../../card/Card";
 import styles from "./ProductItem.module.scss";
+import common from "../../../common/common";
+
 
 const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
   const dispatch = useDispatch();
@@ -32,7 +34,7 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
       </Link>
       <div className={styles.content}>
         <div className={styles.details}>
-          <p>{`${price} vnđ`}</p>
+          <p>{`${common.formatPrice(product.price)} vnđ`}</p>
           <h4>{shortenText(name, 18)}</h4>
         </div>
         {!grid && <p className={styles.desc}>{shortenText(desc, 200)}</p>}

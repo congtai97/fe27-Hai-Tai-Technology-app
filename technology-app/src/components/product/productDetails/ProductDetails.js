@@ -16,6 +16,8 @@ import useFetchDocument from "../../../customHooks/useFetchDocument";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
 import Card from "../../card/Card";
 import StarsRating from "react-star-rate";
+import common from "../../../common/common";
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -62,7 +64,7 @@ const ProductDetails = () => {
               </div>
               <div className={styles.content}>
                 <h3>{product.name}</h3>
-                <p className={styles.price}>{`${product.price} vnđ`}</p>
+                <p className={styles.price}>{`${common.formatPrice(product.price)} vnđ`}</p>
                 <p>{product.desc}</p>
                 <p>
                   <b>Mã SP</b> {product.id}

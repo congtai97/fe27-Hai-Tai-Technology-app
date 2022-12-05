@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Loader from "../../components/loader/Loader";
+import useFetchAll from "../../customHooks/useFetchAll";
 import useFetchCollection from "../../customHooks/useFetchCollection";
 import { selectUserID } from "../../redux/slice/authSlice";
 import { selectOrderHistory, STORE_ORDERS } from "../../redux/slice/orderSlice";
 import styles from "./OrderHistory.module.scss";
 
 const OrderHistory = () => {
-  const { data, isLoading } = useFetchCollection("orders");
+  const { data, isLoading } = useFetchAll("checkouts");
   const orders = useSelector(selectOrderHistory);
   const userID = useSelector(selectUserID);
 
@@ -19,11 +20,17 @@ const OrderHistory = () => {
     dispatch(STORE_ORDERS(data));
   }, [dispatch, data]);
 
+  console.log("orders ", orders);
+
+  // console.log("Checkouts ", data);
+
   const handleClick = (id) => {
     navigate(`/order-details/${id}`);
   };
 
   const filteredOrders = orders.filter((order) => order.userID === userID);
+
+  console.log("FilteredOrder", filteredOrders);
 
   return (
     <section>
@@ -44,40 +51,26 @@ const OrderHistory = () => {
                   <tr>
                     <th>s/n</th>
                     <th>Date</th>
-                    <th>Order ID</th>
                     <th>Order Amount</th>
                     <th>Order Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredOrders.map((order, index) => {
-                    const {
-                      id,
-                      orderDate,
-                      orderTime,
-                      orderAmount,
-                      orderStatus,
-                    } = order;
                     return (
-                      <tr key={id} onClick={() => handleClick(id)}>
+                      <tr key={order.id} onClick={() => handleClick(order.id)}>
                         <td>{index + 1}</td>
-                        <td>
-                          {orderDate} at {orderTime}
-                        </td>
-                        <td>{id}</td>
-                        <td>
-                          {"$"}
-                          {orderAmount}
-                        </td>
+                        <td>at</td>
+                        <td>{order.carTotalAmount}</td>
                         <td>
                           <p
-                            className={
-                              orderStatus !== "Delivered"
-                                ? `${styles.pending}`
-                                : `${styles.delivered}`
-                            }
+                          // className={
+                          //   orderStatus !== "Delivered"
+                          //     ? `${styles.pending}`
+                          //     : `${styles.delivered}`
+                          // }
                           >
-                            {orderStatus}
+                            Status
                           </p>
                         </td>
                       </tr>

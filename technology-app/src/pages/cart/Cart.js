@@ -17,6 +17,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import Card from "../../components/card/Card";
 import { selectIsLoggedIn } from "../../redux/slice/authSlice";
+import common from "../../common/common";
 
 const Cart = () => {
   const cartItems = useSelector(selectCartItems);
@@ -101,7 +102,7 @@ const Cart = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price}</td>
+                      <td>{`${common.formatPrice(price)}`}</td>
                       <td>
                         <div className={styles.count}>
                           <button
@@ -121,7 +122,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td>{`${common.formatPrice(price * cartQuantity)}`}</td>
                       <td className={styles.icons}>
                         <FaTrashAlt
                           size={19}
@@ -149,7 +150,7 @@ const Cart = () => {
                   </p>
                   <div className={styles.text}>
                     <h4>Tổng:</h4>
-                    <h3>{`$${cartTotalAmount.toFixed(2)}`}</h3>
+                    <h3>{`${common.formatPrice(cartTotalAmount)} vnđ`}</h3>
                   </div>
                   <p>Tính phí vận chuyển khi thanh toán</p>
                   <button

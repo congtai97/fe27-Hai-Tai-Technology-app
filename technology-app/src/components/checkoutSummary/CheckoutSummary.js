@@ -8,6 +8,7 @@ import {
 } from "../../redux/slice/cartSlice";
 import Card from "../card/Card";
 import styles from "./CheckoutSummary.module.scss";
+import common from "../../common/common";
 
 const CheckoutSummary = () => {
   const cartItems = useSelector(selectCartItems);
@@ -32,7 +33,7 @@ const CheckoutSummary = () => {
             </p>
             <div className={styles.text}>
               <h4>Tổng:</h4>
-              <h3>{cartTotalAmount.toFixed(2)}</h3>
+              <h3>{`${common.formatPrice(cartTotalAmount)} vnđ`}</h3>
             </div>
             {cartItems.map((item, index) => {
               const { id, name, price, cartQuantity } = item;
@@ -40,8 +41,8 @@ const CheckoutSummary = () => {
                 <Card key={id} cardClass={styles.card}>
                   <h4>Sản Phẩm: {name}</h4>
                   <p>Số lượng: {cartQuantity}</p>
-                  <p>Đơn giá: {price}</p>
-                  <p>Thanh toán: {price * cartQuantity}</p>
+                  <p>Đơn giá: {`${common.formatPrice(price)} vnđ`}</p>
+                  <p>Thanh toán: {`${common.formatPrice(price * cartQuantity)} vnđ`}</p>
                 </Card>
               );
             })}

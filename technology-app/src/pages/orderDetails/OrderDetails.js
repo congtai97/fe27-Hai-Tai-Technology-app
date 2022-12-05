@@ -6,11 +6,12 @@ import styles from "./OrderDetails.module.scss";
 const OrderDetails = () => {
   const [order, setOrder] = useState(null);
   const { id } = useParams();
-  const { document } = useFetchDocument("orders", id);
+  const { document } = useFetchDocument("checkouts", id);
 
   useEffect(() => {
     setOrder(document);
   }, [document]);
+  console.log("orders ", order);
 
   return (
     <section>
@@ -28,10 +29,10 @@ const OrderDetails = () => {
               <b>Order ID</b> {order.id}
             </p>
             <p>
-              <b>Order Amount</b> ${order.orderAmount}
+              <b>Order Amount</b> {order.carTotalAmount}
             </p>
             <p>
-              <b>Order Status</b> {order.orderStatus}
+              <b>Order Status</b> 
             </p>
             <br />
             <table>
@@ -46,7 +47,7 @@ const OrderDetails = () => {
                 </tr>
               </thead>
               <tbody>
-                {order.cartItems.map((cart, index) => {
+                {/* {order.cartItems.map((cart, index) => {
                   const { id, name, price, imageURL, cartQuantity } = cart;
                   return (
                     <tr key={id}>
@@ -75,7 +76,7 @@ const OrderDetails = () => {
                       </td>
                     </tr>
                   );
-                })}
+                })} */}
               </tbody>
             </table>
           </>
