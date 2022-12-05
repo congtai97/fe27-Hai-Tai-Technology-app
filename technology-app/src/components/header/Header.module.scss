@@ -12,11 +12,11 @@ header {
   width: 100%;
   background-color: var(--color-primary);
   color: #fff;
-  ::marker{
-    color: var(--color-primary);
-  }  ::marker{
-    color: var(--color-primary);
-  }
+  // ::marker{
+  //   color: var(--color-primary);
+  // }  ::marker{
+  //   color: var(--color-primary);
+  // }
   .header {
     width: 100%;
     height: auto;
@@ -42,6 +42,21 @@ header {
       .header-center{
         display: flex;
         flex-direction: column;
+        .search {
+          display: flex;
+          height: 50%;
+          justify-content: space-between;
+          align-items: center;
+          button {
+            padding: 10px;
+            background-color: rgb(13,92,182);
+            font-weight: 400;
+            color: #fff
+          };
+          button:hover{
+            background-color: rgb(73, 139, 214);
+          }
+        }
         ul{
           padding-inline-start: 0px;
           justify-content: space-around;
@@ -58,7 +73,7 @@ header {
           font-size: 1.6rem;
           font-weight: 500;
           &:hover {
-            color: aqua;
+            color: var(--color-yellow);
           }
         }
       }
@@ -75,11 +90,11 @@ header {
       font-size: 1.6rem;
       font-weight: 500;
       &:hover {
-        color: aqua;
+        color: var(--color-yellow);
       }
-      // &.active {
-      //   background-color: aqua;
-      // }
+      &.active {
+        color: var(--color-yellow);
+      }
       p {
         position: absolute;
         top: -1rem;
@@ -102,10 +117,10 @@ header {
       font-size: 1.6rem;
       font-weight: 500;
       &:hover {
-        color:aqua;
+        color:var(--color-yellow);
       }
       &.active {
-        color: aqua;
+        color: var(--color-yellow);
       }
     }
   }
@@ -114,8 +129,54 @@ header {
     cursor: pointer;
     display: none;
   }
+  @media screen and (max-width: 1200px) {
+    .header {
+      a img {
+        max-width: 150px;
+      }
+      nav {
+        ul{
+          .header-center{
+            .search {
+              width: 250px;
+              button {
+              font-size: 1.4rem;
+              padding: 4px;
+              }
+            }
+            ul li a {
+              font-size: 1.4rem;
+            }
+          }
+        }
+        .header-right {
+          a {
+          font-size: 1.4rem;     
+        }
+        }
+      }
+    }
 
-
+  }
+  @media screen and (max-width: 1000px){
+    .header {
+      nav {
+        .header-right {
+            .onlogin {
+             display: flex;
+             flex-direction: column;
+            }
+            .onlogout {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+        }
+      }
+      
+    }
+  
+  
 
   @media screen and (max-width: 800px) {
     nav {
@@ -153,18 +214,25 @@ header {
         display: block;
         padding-right: 0 !important;
         line-height: 35px;
+        
         .logo-mobile {
+          position: relative;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           align-items: center;
           border-bottom: none;
           > * {
             cursor: pointer;
           }
+          .logo-mobile-icon {
+            position: absolute;
+            top:0;
+            right: 0;
+          }
         }
         li {
           &:hover {
-            background-color: var(--color-primary);
+            background-color: var(--color-yellow);
           }
         }
         .header-center {
@@ -230,7 +298,7 @@ header {
         
       font-weight: 500;
         &:hover {
-          color: orangered;
+          color: var(--color-yellow);
         }
         p {
           position: absolute;
@@ -258,8 +326,8 @@ header {
 
 .active {
   position: relative;
-  color: aqua;
-  border-bottom: 1px solid aqua;
+  color: var(--color-yellow);
+  border-bottom: 1px solid var(--color-yellow);
 }
 
 // .active::after {
@@ -274,13 +342,4 @@ header {
 .border-left {
   border-left: 1px solid #fff;
   padding-left: 10px;
-}
-@media screen and (max-width: 900px){
-  .header-right {
-    .links {
-      .onlogout {
-        display: flex;
-      }
-    }
-  }
 }

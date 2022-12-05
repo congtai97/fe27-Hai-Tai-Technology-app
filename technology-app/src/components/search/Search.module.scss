@@ -2,7 +2,7 @@
   margin: 5px 0;
   position: relative;
   flex: 1;
-  width: 450px;
+  width: 300px;
 
 
   .icon {
@@ -20,7 +20,7 @@
     padding: 1rem;
     padding-left: 3rem;
     margin: 1rem auto;
-    width: 450px;
+    width: 300px;
     border: 1px solid aqua;
     border-radius: 3px;
     outline: none;
@@ -31,9 +31,9 @@
 }
 @media screen and (max-width: 1200px){
   .search {
-    max-width: 350px;
+    max-width: 250px;
     input {
-      max-width: 350px;
+      max-width: 250px;
     }
   }
 }

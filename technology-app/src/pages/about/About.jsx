@@ -29,8 +29,12 @@ function About() {
         theo thông tin dưới đây:
       </p>
       <h4>Địa chỉ cửa hàng:</h4>
-      <p>add: 84 Quang Trung, Hải Châu, Đà Nẵng </p>
-      <p>phone: +84 12345678</p>
+      <p>
+        <b>Addess:</b>  84 Quang Trung, Hải Châu, Đà Nẵng
+      </p>
+      <p>
+        <b>Phone:</b>  +84 12345678
+      </p>
     </div>
   );
 }
