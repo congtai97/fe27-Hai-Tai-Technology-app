@@ -42,11 +42,11 @@ const Footer = () => {
         <div className={styles.center}>
           <h5>Chăm Sóc Khách Hàng</h5>
           <ul>
-            <Link to={"/"}>Hướng dẫn mua hàng</Link>
-            <Link to={"/"}>Chính sách bảo hành</Link>
-            <Link to={"/"}>Chính sách đổi trả</Link>
-            <Link to={"/"}>Chính sách giao hàng</Link>
-            <Link to={"/"}>Phương thức thanh toán</Link>
+            <Link to={"/guide"}>Hướng dẫn mua hàng</Link>
+            <Link to={"/insurance"}>Chính sách bảo hành</Link>
+            <Link to={"/return-policy"}>Chính sách đổi trả</Link>
+            <Link to={"/delivery"}>Chính sách giao hàng</Link>
+            <Link to={"/rules"}>Nội quy cửa hàng</Link>
           </ul>
         </div>
         <div className={styles.center}>

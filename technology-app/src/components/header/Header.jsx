@@ -22,6 +22,7 @@ import Search from "../search/Search";
 import { FILTER_BY_SEARCH } from "../../redux/slice/filterSlice";
 import { selectProducts } from "../../redux/slice/productSlice";
 import img from "../../assets/logo-shop3.png";
+import { BiSearch } from "react-icons/bi";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -78,10 +79,10 @@ const Header = () => {
       }
     });
   }, [dispatch, displayName]);
-
-  useEffect(() => {
+  const HandleSearch = (e) => {
+    e.preventDefault();
     dispatch(FILTER_BY_SEARCH({ products, search }));
-  }, [dispatch, products, search]);
+  };
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -94,7 +95,7 @@ const Header = () => {
   const logoutUser = () => {
     signOut(auth)
       .then(() => {
-        toast.success("Logout successfully.");
+        toast.success("Đăng xuất thành công.");
         navigate("/");
       })
       .catch((error) => {
@@ -136,14 +137,27 @@ const Header = () => {
 
             <ul onClick={hideMenu}>
               <li className={styles["logo-mobile"]}>
-                <FaTimes size={22} color="#fff" onClick={hideMenu} />
+                <Link to="/">
+                  <img src={img} style={{ width: 220, height: 60 }} />
+                </Link>
+                <div className={styles["logo-mobile-icon"]}>
+                  <FaTimes size={22} color="#fff" onClick={hideMenu} />
+                </div>
               </li>
               <ul className={styles["header-center"]}>
-                <li className={styles["search"]}>
+                <li className={styles.search}>
                   <Search
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                   />
+                  <button
+                    type="submit"
+                    className="--btn"
+                    onClick={HandleSearch}
+                  >
+                    <BiSearch size={18} className={styles.icon} />
+                    Tìm kiếm
+                  </button>
                 </li>
                 <ul>
                   {/* <li>
@@ -184,33 +198,29 @@ const Header = () => {
             <div className={styles["header-right"]} onClick={hideMenu}>
               <span className={styles.links}>
                 <ShowOnLogout>
-                  <div className="onlogout">
+                  <div className={styles.onlogout}>
                     <NavLink to="/login" className={activeLink}>
                       Đăng Nhập
                     </NavLink>
-                    <NavLink
-                      to="/register"
-                      className={`${activeLink} ${styles["border-left"]}`}
-                    >
+
+                    <NavLink to="/register" className={activeLink}>
                       Đăng Ký
                     </NavLink>
                   </div>
                 </ShowOnLogout>
                 <ShowOnLogin>
-                  <a href="#home" style={{ color: "aqua" }}>
-                    <FaUserCircle size={16} />
-                    Hi, {displayName}
-                  </a>
-                </ShowOnLogin>
-                <ShowOnLogin>
-                  <NavLink to="/order-history" className={activeLink}>
-                    Đơn Hàng
-                  </NavLink>
-                </ShowOnLogin>
-                <ShowOnLogin>
-                  <NavLink to="/" onClick={logoutUser}>
-                    Đăng Xuất
-                  </NavLink>
+                  <div className={styles.onlogin}>
+                    <a href="#home" style={{ color: "aqua" }}>
+                      <FaUserCircle size={16} />
+                      Hi, {displayName}
+                    </a>
+                    <NavLink to="/order-history" className={activeLink}>
+                      Đơn Hàng
+                    </NavLink>
+                    <NavLink to="/" onClick={logoutUser}>
+                      Đăng Xuất
+                    </NavLink>
+                  </div>
                 </ShowOnLogin>
               </span>
               {cart}

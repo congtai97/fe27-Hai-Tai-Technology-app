@@ -17,6 +17,11 @@ import OrderDetails from "./pages/orderDetails/OrderDetails";
 import NotFound from "./pages/notFound/NotFound";
 import About from "./pages/about/About";
 import Product from "./components/product/Product";
+import OderingGuide from "./components/oderingGuide/OrderingGuide";
+import Insurance from "./components/insurance/Insurance";
+import ReturnPolicy from "./components/returnPolicy/ReturnPolicy";
+import Delivery from "./components/delivery/Delivery";
+import Rules from "./components/rules/Rules";
 
 function App() {
   return (
@@ -32,6 +37,11 @@ function App() {
           <Route path="/reset" element={<Reset />} />
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<Product />} />
+          <Route path="/guide" element={<OderingGuide />} />
+          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/delivery" element={<Delivery />} />
+          <Route path="/rules" element={<Rules />} />
 
           <Route
             path="/admin/*"
