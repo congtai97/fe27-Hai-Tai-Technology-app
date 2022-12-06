@@ -1,10 +1,41 @@
 .product {
   .card {
     padding: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    
   }
   .review {
     border-top: 1px solid #ccc;
+    display: flex;
+    padding: 20px;
+    
+    .left {
+      display: flex;
+      .imgUser {
+        color: #666;
+        padding-right: 15px;
+      }
+      .date {
+        font-size: 15px;
+        color: #666;
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      text-align: center;
+      .check {
+        color: green;
+        span {
+          font-weight: 400;
+          padding-left: 10px;
+        }
+      }
+      .content {
+        padding-top: 20px;
+      }
+    }
   }
   .details {
     padding-top: 2rem;
@@ -21,7 +52,7 @@
 
     .content {
       width: 55%;
-      padding: 0 5px;
+      padding: 0 50px;
       & > * {
         margin-bottom: 1rem;
       }
