@@ -4,11 +4,14 @@ import styles from "./OrderDetails.module.scss";
 import spinnerImg from "../../../assets/spinner.jpg";
 import { Link, useParams } from "react-router-dom";
 import ChangeOrderStatus from "../changeOrderStatus/ChangeOrderStatus";
+import common from "../../../common/common";
 
-const OrderDetails = () => {
+const OrderDetailsAdmin = () => {
   const [order, setOrder] = useState(null);
   const { id } = useParams();
   const { document } = useFetchDocument("orders", id);
+
+  console.log("document ", document);
 
   useEffect(() => {
     setOrder(document);
@@ -17,43 +20,42 @@ const OrderDetails = () => {
   return (
     <>
       <div className={styles.table}>
-        <h2>Order Details</h2>
+        <h2>Chi tiết đơn hàng</h2>
         <div>
-          <Link to="/admin/orders">&larr; Back To Orders</Link>
+          <Link to="/admin/orders">&larr; Trở về</Link>
         </div>
         <br />
         {order === null ? (
           <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
         ) : (
           <>
-            <p>
+            {/* <p>
               <b>Order ID</b> {order.id}
+            </p> */}
+            <p>
+              <b>Tổng đơn hàng: </b> {common.formatPrice(order.orderAmount)} vnđ
             </p>
             <p>
-              <b>Order Amount</b> ${order.orderAmount}
+              <b>Trạng Thái:</b> {order.orderStatus}
             </p>
             <p>
-              <b>Order Status</b> {order.orderStatus}
-            </p>
-            <p>
-              <b>Shipping Address</b>
+              <b>Địa chỉ giao hàng</b>
               <br />
-              Address: {order.shippingAddress.line1},
-              {order.shippingAddress.line2}, {order.shippingAddress.city}
+              Address: {order.shippingAddress.address}
               <br />
-              State: {order.shippingAddress.state}
+              City: {order.shippingAddress.city}
               <br />
-              Country: {order.shippingAddress.country}
+              phone: {order.shippingAddress.phone}
             </p>
             <br />
             <table>
               <thead>
                 <tr>
-                  <th>s/n</th>
-                  <th>Product</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
+                  <th>STT</th>
+                  <th>Sản Phẩm</th>
+                  <th>Giá</th>
+                  <th>Số lượng</th>
+                  <th>Tổng</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,9 +76,9 @@ const OrderDetails = () => {
                           style={{ width: "100px" }}
                         />
                       </td>
-                      <td>{price}</td>
+                      <td>{common.formatPrice(price)} vnđ</td>
                       <td>{cartQuantity}</td>
-                      <td>{(price * cartQuantity).toFixed(2)}</td>
+                      <td>{common.formatPrice(price * cartQuantity)} vnđ</td>
                     </tr>
                   );
                 })}
@@ -90,4 +92,4 @@ const OrderDetails = () => {
   );
 };
 
-export default OrderDetails;
+export default OrderDetailsAdmin;

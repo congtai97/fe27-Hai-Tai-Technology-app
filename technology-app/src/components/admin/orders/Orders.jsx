@@ -9,6 +9,7 @@ import {
 } from "../../../redux/slice/orderSlice";
 import Loader from "../../loader/Loader";
 import styles from "./Orders.module.scss";
+import common from "../../../common/common";
 
 const Orders = () => {
   const { data, isLoading } = useFetchCollection("orders");
@@ -28,25 +29,25 @@ const Orders = () => {
   return (
     <>
       <div className={styles.order}>
-        <h2>Lịch sử giao dịch của bạn</h2>
-        <p>
+        <h2>Lịch sử Đơn Hàng</h2>
+        {/* <p>
           Open an order to <b>Change order status</b>
-        </p>
+        </p> */}
         <br />
         <>
           {isLoading && <Loader />}
           <div className={styles.table}>
             {orders.length === 0 ? (
-              <p>Không có đơn đặt hàng</p>
+              <p>Không tìm thấy đơn hàng</p>
             ) : (
               <table>
                 <thead>
                   <tr>
-                    <th>s/n</th>
-                    <th>Date</th>
-                    <th>Order ID</th>
-                    <th>Order Amount</th>
-                    <th>Order Status</th>
+                    <th>STT</th>
+                    <th>Ngày mua</th>
+                    {/* <th>Order ID</th> */}
+                    <th>Tổng</th>
+                    <th>Trạng Thái</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,18 +62,16 @@ const Orders = () => {
                     return (
                       <tr key={id} onClick={() => handleClick(id)}>
                         <td>{index + 1}</td>
+                        <td>{orderDate}</td>
+                        {/* <td>{id}</td> */}
                         <td>
-                          {orderDate} at {orderTime}
-                        </td>
-                        <td>{id}</td>
-                        <td>
-                          {"$"}
-                          {orderAmount}
+                          {common.formatPrice(orderAmount)}
+                          {" vnđ"}
                         </td>
                         <td>
                           <p
                             className={
-                              orderStatus !== "Delivered"
+                              orderStatus !== "Đã giao hàng"
                                 ? `${styles.pending}`
                                 : `${styles.delivered}`
                             }

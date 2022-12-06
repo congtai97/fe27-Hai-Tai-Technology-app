@@ -1,16 +1,9 @@
-import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import Card from "../../components/card/Card";
 import CheckoutSummary from "../../components/checkoutSummary/CheckoutSummary.js";
-import { db } from "../../firebase/config";
-import { selectUserID } from "../../redux/slice/authSlice";
-import {
-  selectCartItems,
-  selectCartTotalAmount,
-} from "../../redux/slice/cartSlice";
+
 import { SAVE_SHIPPING_ADDRESS } from "../../redux/slice/checkoutSlice";
 
 import styles from "./CheckoutDetails.module.scss";

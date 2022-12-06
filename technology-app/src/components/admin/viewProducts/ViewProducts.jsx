@@ -1,6 +1,6 @@
 import { deleteDoc, doc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db, storage } from "../../../firebase/config";
 import styles from "./ViewProducts.module.scss";
@@ -38,6 +38,7 @@ const ViewProducts = () => {
     indexOfLastProduct
   );
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(
@@ -53,10 +54,10 @@ const ViewProducts = () => {
 
   const confirmDelete = (id, imageURL) => {
     Notiflix.Confirm.show(
-      "Delete Product!!!",
-      "You are about to delete this product",
-      "Delete",
-      "Cancel",
+      "Xóa Sản Phẩm!!!",
+      "Bạn có muốn xóa sản phẩm này!",
+      "Xóa",
+      "Đóng",
       function okCb() {
         deleteProduct(id, imageURL);
       },
@@ -85,11 +86,21 @@ const ViewProducts = () => {
     }
   };
 
+  const addProduct = (e) => {
+    e.preventDefault();
+    navigate("/admin/add-product/ADD");
+  };
+
   return (
     <>
       {isLoading && <Loader />}
       <div className={styles.table}>
-        <h2>All Products</h2>
+        <div className="--flex-between">
+          <h2>All Products</h2>
+          <button onClick={addProduct} className="--btn --btn-success">
+            Thêm Sản Phẩm
+          </button>
+        </div>
 
         <div className={styles.search}>
           <p>

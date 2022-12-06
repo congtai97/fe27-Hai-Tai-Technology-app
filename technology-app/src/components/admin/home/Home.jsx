@@ -16,6 +16,7 @@ import {
   STORE_ORDERS,
 } from "../../../redux/slice/orderSlice";
 import useFetchCollection from "../../../customHooks/useFetchCollection";
+import common from "../../../common/common";
 
 //Icons
 const earningIcon = <AiFillDollarCircle size={30} color="#b624ff" />;
@@ -45,23 +46,23 @@ const Home = () => {
 
   return (
     <div className={styles.home}>
-      <h2>Admin Home</h2>
+      <h2>Admin</h2>
       <div className={styles["info-box"]}>
         <InfoBox
           cardClass={`${styles.card} ${styles.card1}`}
-          title={"Earnings"}
-          count={`$${totalOrderAmount}`}
+          title={"Thu nhập"}
+          count={`${common.formatPrice(totalOrderAmount)} vnđ`}
           icon={earningIcon}
         />
         <InfoBox
           cardClass={`${styles.card} ${styles.card2}`}
-          title={"Products"}
+          title={"Sản Phẩm"}
           count={products.length}
           icon={productIcon}
         />
         <InfoBox
           cardClass={`${styles.card} ${styles.card3}`}
-          title={"Orders"}
+          title={"Đơn Hàng"}
           count={orders.length}
           icon={ordersIcon}
         />
