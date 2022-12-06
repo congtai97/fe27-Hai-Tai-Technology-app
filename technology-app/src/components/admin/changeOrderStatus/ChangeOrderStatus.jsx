@@ -57,8 +57,7 @@ const ChangeOrderStatus = ({ order, id }) => {
                   -- Chọn --
                 </option>
                 <option value="Đã đặt hàng...">Đã đặt hàng...</option>
-                <option value="Processing...">Processing...</option>
-                <option value="Shipped...">Shipped...</option>
+                <option value="Đã Vận Chuyển...">Đã Vận Chuyển...</option>
                 <option value="Đã giao hàng">Đã giao hàng</option>
               </select>
             </span>

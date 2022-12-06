@@ -45,7 +45,7 @@ const OrderHistory = () => {
               <table>
                 <thead>
                   <tr>
-                    <th>s/n</th>
+                    <th>STT</th>
                     <th>Ngày Mua</th>
                     {/* <th>Tên Sản Phẩm</th> */}
                     <th>Tổng đơn hàng</th>

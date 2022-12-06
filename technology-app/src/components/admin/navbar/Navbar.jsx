@@ -28,11 +28,11 @@ const Navbar = () => {
               Tất Cả Sản Phẩm
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to="/admin/add-product/ADD" className={activeLink}>
-              Thêm Sản Phẩm
+          <li>
+            <NavLink to="/admin/all-users" className={activeLink}>
+              Người dùng
             </NavLink>
-          </li> */}
+          </li>
           <li>
             <NavLink to="/admin/orders" className={activeLink}>
               Đơn Hàng

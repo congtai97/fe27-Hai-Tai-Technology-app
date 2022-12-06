@@ -19,7 +19,6 @@ const Home = () => {
   }, [url]);
 
   return (
-    
     <div>
       <Slider />
       <Product />

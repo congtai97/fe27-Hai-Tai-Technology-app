@@ -42,7 +42,7 @@ const ReviewProducts = () => {
     };
     try {
       addDoc(collection(db, "reviews"), reviewConfig);
-      toast.success("Review submitted successfully");
+      toast.success("Đánh giá thành công....");
       setRate(0);
       setReview("");
       naviage(-1);
@@ -54,13 +54,13 @@ const ReviewProducts = () => {
   return (
     <section>
       <div className={`container ${styles.review}`}>
-        <h2>Review Products</h2>
+        <h2>Đánh giá Sản Phẩm</h2>
         {product === null ? (
           <img src={spinnerImg} alt="Loading..." style={{ width: "50px" }} />
         ) : (
           <>
             <p>
-              <b>Product name:</b> {product.name}
+              <b>Tên Sản Phẩm:</b> {product.name}
             </p>
             <img
               src={product.imageURL}
@@ -72,14 +72,14 @@ const ReviewProducts = () => {
 
         <Card cardClass={styles.card}>
           <form onSubmit={(e) => submitReview(e)}>
-            <label>Rating:</label>
+            <label>Sao:</label>
             <StarsRating
               value={rate}
               onChange={(rate) => {
                 setRate(rate);
               }}
             />
-            <label>Review</label>
+            <label>Đánh giá:</label>
             <textarea
               value={review}
               required
@@ -88,7 +88,7 @@ const ReviewProducts = () => {
               rows="10"
             ></textarea>
             <button type="submit" className="--btn --btn-primary">
-              Submit Review
+              Đánh giá
             </button>
           </form>
         </Card>

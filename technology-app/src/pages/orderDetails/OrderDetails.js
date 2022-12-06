@@ -73,7 +73,7 @@ const OrderDetails = () => {
                       <td className={styles.icons}>
                         <Link to={`/review-product/${id}`}>
                           <button className="--btn --btn-primary">
-                            Review Product
+                            Đánh giá SP
                           </button>
                         </Link>
                       </td>
