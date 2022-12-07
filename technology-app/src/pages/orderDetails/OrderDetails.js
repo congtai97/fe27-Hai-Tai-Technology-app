@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Notiflix from "notiflix";
 import useFetchDocument from "../../customHooks/useFetchDocument";
 import spinnerImg from "../../assets/spinner.jpg";
 import styles from "./OrderDetails.module.scss";
 import common from "../../common/common";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase/config";
+import { toast } from "react-toastify";
 
 const OrderDetails = () => {
   const [order, setOrder] = useState(null);
+  const [ btnHuy, setbtnHuy ] = useState(false);
   const { id } = useParams();
   const { document } = useFetchDocument("orders", id);
 
@@ -14,8 +19,40 @@ const OrderDetails = () => {
     setOrder(document);
   }, [document]);
 
-  console.log("document ", document);
 
+
+  const confirmDelete = (id) => {
+    Notiflix.Confirm.show(
+      "Hủy Đơn Hàng!",
+      "Bạn có muốn hủy đơn hàng này?",
+      "Hủy đơn",
+      "Đóng",
+      function okCb() {
+        deleteProduct(id);
+      },
+      function cancelCb() {
+        console.log("Delete Canceled");
+      },
+      {
+        width: "320px",
+        borderRadius: "3px",
+        titleColor: "orangered",
+        okButtonBackground: "orangered",
+        cssAnimationStyle: "zoom",
+      }
+    );
+
+    const deleteProduct = async (id) => {
+      try {
+        await deleteDoc(doc(db, "orders", id));
+        toast.success("Hủy đơn hàng thành công!");
+      } catch (error) {
+        toast.error(error.message);
+      }
+    };
+
+  
+  };
   return (
     <section>
       <div className={`container ${styles.table}`}>
@@ -34,9 +71,12 @@ const OrderDetails = () => {
             <p>
               <b>Tổng đơn hàng: </b> {common.formatPrice(order.orderAmount)} vnđ
             </p>
-            <p>
-              <b>Trạng thái: </b> {order.orderStatus}
-            </p>
+            <div className="--flex-between">
+              <p>
+                <b>Trạng thái: </b> {order.orderStatus}
+              </p>
+                <button onClick={() => confirmDelete(order.id)} className="--btn --btn-success">Hủy Đơn Hàng</button>
+            </div>
             <br />
             <table>
               <thead>
