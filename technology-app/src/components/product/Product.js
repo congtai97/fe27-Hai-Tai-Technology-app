@@ -11,24 +11,12 @@ import ProductFilter from "./productFilter/ProductFilter";
 import ProductList from "./productList/ProductList";
 import spinnerImg from "../../assets/spinner.jpg";
 import { FaCogs } from "react-icons/fa";
-import Pagination from "../pagination/Pagination";
-import { selectFilteredProducts } from "../../redux/slice/filterSlice";
 
 const Product = () => {
   const { data, isLoading } = useFetchCollection("products");
   const [showFilter, setShowFilter] = useState(false);
   const products = useSelector(selectProducts);
   const dispatch = useDispatch();
-  const filteredProducts = useSelector(selectFilteredProducts);
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [productsPerPage] = useState(6);
-  // Get Current Products
-  // const indexOfLastProduct = currentPage * productsPerPage;
-  // const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  // const currentProducts = filteredProducts.slice(
-  //   indexOfFirstProduct,
-  //   indexOfLastProduct
-  // );
 
   useEffect(() => {
     dispatch(
@@ -76,12 +64,6 @@ const Product = () => {
               <b>{showFilter ? "Hide Filter" : "Show Filter"}</b>
             </p>
           </div>
-          {/* <Pagination
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            productsPerPage={productsPerPage}
-            totalProducts={filteredProducts.length}
-          /> */}
         </div>
       </div>
     </section>

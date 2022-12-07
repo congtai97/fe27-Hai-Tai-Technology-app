@@ -17,7 +17,8 @@ import useFetchCollection from "../../../customHooks/useFetchCollection";
 import Card from "../../card/Card";
 import StarsRating from "react-star-rate";
 import common from "../../../common/common";
-
+import { BsCheckCircleFill } from "react-icons/bs";
+import { FaUserCircle } from "react-icons/fa";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -64,13 +65,15 @@ const ProductDetails = () => {
               </div>
               <div className={styles.content}>
                 <h3>{product.name}</h3>
-                <p className={styles.price}>{`${common.formatPrice(product.price)} vnđ`}</p>
+                <p className={styles.price}>{`${common.formatPrice(
+                  product.price
+                )} vnđ`}</p>
                 <p>{product.desc}</p>
                 <p>
-                  <b>Mã SP</b> {product.id}
+                  <b>Mã SP:</b> {product.id}
                 </p>
                 <p>
-                  <b>Nhãn Hiệu</b> {product.brand}
+                  <b>Nhãn Hiệu:</b> {product.brand}
                 </p>
 
                 <div className={styles.count}>
@@ -115,15 +118,25 @@ const ProductDetails = () => {
                   const { rate, review, reviewDate, userName } = item;
                   return (
                     <div key={index} className={styles.review}>
-                      <StarsRating value={rate} />
-                      <p>{review}</p>
-                      <span>
-                        <b>{reviewDate}</b>
-                      </span>
-                      <br />
-                      <span>
-                        <b>by: {userName}</b>
-                      </span>
+                      <div className={styles.left}>
+                        <div className={styles.imgUser}>
+                          <FaUserCircle size={50} />
+                        </div>
+                        <div>
+                          <h4>{userName}</h4>
+                          <div className={styles.date}>{reviewDate}</div>
+                        </div>
+                      </div>
+                      <div className={styles.right}>
+                        <span className={styles.stars}>
+                          <StarsRating value={rate} size={10} />
+                        </span>
+                        <p className={styles.check}>
+                          <BsCheckCircleFill size={15} />
+                          <span>Đã mua hàng</span>
+                        </p>
+                        <p className={styles.content}>{review}</p>
+                      </div>
                     </div>
                   );
                 })}
