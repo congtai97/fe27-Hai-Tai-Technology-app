@@ -8,18 +8,32 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import { toast } from "react-toastify";
 import Loader from "../../components/loader/Loader";
 import { useSelector } from "react-redux";
 import { selectPreviousURL } from "../../redux/slice/cartSlice";
+import { selectEmail } from "../../redux/slice/authSlice";
+import { collection, doc, onSnapshot, orderBy } from "firebase/firestore";
+import useFetchUser from "../../customHooks/useFetchUser";
+import testFetchUser from "../../customHooks/useFetchCollections";
+import useFetchCollections from "../../customHooks/useFetchCollections";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { data } = useFetchUser("users");
+
+  // const user = collection(db, "users")
+
+
+  console.log("data ", data);
 
   const previousURL = useSelector(selectPreviousURL);
+  const userEmail = useSelector(selectEmail);
+
+  console.log("User Email ", userEmail);
   const navigate = useNavigate();
 
   const redirectUser = () => {
@@ -35,10 +49,24 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // const user = userCredential.user;
+        const user = userCredential.user;
         setIsLoading(false);
+        // const docRef = doc(db, "users", user.uid)
+        console.log("User ID: ", user.uid);
+        // data.map((user, index) => {
+        //   if (user.idAuth === user.uid && user.role === "Admin"){
+        //     return navigate("/admin/home")
+        //   }
+        //   else {
+        //     redirectUser()
+        //   }
+        // })
+        if(email === "admin@gmail.com"){
+          return navigate("/admin/home")
+        } else {
+          redirectUser();
+        }
         toast.success("Đăng nhập thành công.");
-        redirectUser();
       })
       .catch((error) => {
         setIsLoading(false);
@@ -70,7 +98,7 @@ const Login = () => {
 
         <Card>
           <div className={styles.form}>
-            <h2>Login</h2>
+            <h2>Đăng Nhập</h2>
 
             <form onSubmit={loginUser}>
               <input

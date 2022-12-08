@@ -3,14 +3,16 @@ import styles from "./auth.module.scss";
 import Card from "../../components/card/Card";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase/config";
+import { auth, db } from "../../firebase/config";
 import Loader from "../../components/loader/Loader";
 import { toast, ToastContainer } from "react-toastify";
+import { addDoc, collection } from "firebase/firestore";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
+  const [role, setRole] = useState("User")
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -24,9 +26,22 @@ const Register = () => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // const user = userCredential.user;
+        const userAuth = userCredential.user;
         // console.log(user);
         setIsLoading(false);
+        try {
+          const docRef = addDoc(collection(db, "users"), {
+            idAuth: userAuth.uid,
+            emaillogin: email,
+            username: "",
+            passwork: password,
+            role: role,
+          });
+          setIsLoading(false);
+        } catch (error) {
+          setIsLoading(false);
+          toast.error(error.message);
+        }
         toast.success("Đăng Ký thành công...");
         navigate("/login");
       })

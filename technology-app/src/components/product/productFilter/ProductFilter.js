@@ -11,6 +11,7 @@ import {
   selectProducts,
 } from "../../../redux/slice/productSlice";
 import styles from "./ProductFilter.module.scss";
+import common from "../../../common/common";
 
 const ProductFilter = () => {
   const [category, setCategory] = useState("All");
@@ -80,7 +81,7 @@ const ProductFilter = () => {
           })}
         </select>
         <h4>Giá</h4>
-        <p>{`${price} vnđ`}</p>
+        <p>{`${common.formatPrice(price)} vnđ`}</p>
         <div className={styles.price}>
           <input
             type="range"

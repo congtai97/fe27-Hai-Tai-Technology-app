@@ -23,6 +23,7 @@ import { FILTER_BY_SEARCH } from "../../redux/slice/filterSlice";
 import { selectProducts } from "../../redux/slice/productSlice";
 import img from "../../assets/logo-shop3.png";
 import { BiSearch } from "react-icons/bi";
+import useFetchUser from "../../customHooks/useFetchUser";
 
 const activeLink = ({ isActive }) => (isActive ? `${styles.active}` : "");
 
@@ -34,6 +35,8 @@ const Header = () => {
   const [search, setSearch] = useState("");
   const [scrollPage, setScrollPage] = useState(false);
   const cartTotalQuantity = useSelector(selectCartTotalQuantity);
+  const { data } = useFetchUser("users");
+  console.log("data ", data);
 
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY());

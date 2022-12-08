@@ -1,8 +1,9 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, doc, setDoc, Timestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { db } from "../../../firebase/config";
+import { auth, db } from "../../../firebase/config";
 import Card from "../../card/Card";
 import Loader from "../../loader/Loader";
 import styles from "./AddUser.module.scss";
@@ -14,6 +15,7 @@ const roles = [
 ];
 
 const initialState = {
+  idAuth: "",
   emaillogin: "",
   username: "",
   passwork: "",
@@ -34,26 +36,40 @@ const AddUser = () => {
     setUser({ ...user, [name]: value });
   };
 
+  console.log("name ", user.emaillogin);
+
   const addUser = (e) => {
     e.preventDefault();
     setIsLoading(true);
+    createUserWithEmailAndPassword(auth, user.emaillogin, user.passwork)
+      .then((userCredential) => {
+        const userAuth = userCredential.user;
+        // console.log(user);
+        setIsLoading(false);
+        try {
+          const docRef = addDoc(collection(db, "users"), {
+            idAuth: userAuth.uid,
+            emaillogin: user.emaillogin,
+            username: user.username,
+            passwork: user.passwork,
+            role: user.role,
+          });
+          setIsLoading(false);
+          setUser({ ...initialState });
 
-    try {
-      const docRef = addDoc(collection(db, "users"), {
-        emaillogin: user.emaillogin,
-        username: user.username,
-        passwork: user.passwork,
-        role: user.role,
+          toast.success("User uploaded successfully.");
+          navigate("/admin/all-users");
+        } catch (error) {
+          setIsLoading(false);
+          toast.error(error.message);
+        }
+        toast.success("Đăng Ký thành công...");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setIsLoading(false);
       });
-      setIsLoading(false);
-      setUser({ ...initialState });
-
-      toast.success("User uploaded successfully.");
-      navigate("/admin/all-users");
-    } catch (error) {
-      setIsLoading(false);
-      toast.error(error.message);
-    }
   };
 
   return (

@@ -54,10 +54,12 @@ const CheckoutForm = () => {
     <>
     <section>
       <div className="container">
-        <h2>Checkout Successful</h2>
-        <p>Thank you for your purchase</p>
+        <h2>Thanh toán!</h2>
+        <p>Cảm ơn bạn đã mua hàng tại Shopp</p>
         <br />
-        <button onClick={saveOrder}>Hoan Tat Thanh Toan</button>
+        <p>Click để hoàn tất thanh toán!</p>
+
+        <button className="--btn --btn-success" onClick={saveOrder}>Hoan Tat Thanh Toan</button>
       </div>
     </section>
     </>

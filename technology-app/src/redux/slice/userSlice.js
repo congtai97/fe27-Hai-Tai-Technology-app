@@ -9,7 +9,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     STORE_USERS(state, action) {
-        console.log(action.payload);
+        // console.log(action.payload);
       state.products = action.payload.products;
     },
   },
