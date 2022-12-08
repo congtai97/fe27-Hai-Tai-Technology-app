@@ -43,7 +43,7 @@ const CheckoutForm = () => {
     try {
       addDoc(collection(db, "orders"), orderConfig);
       dispatch(CLEAR_CART());
-      toast.success("Order saved");
+      toast.success("Hoàn tất thanh toán");
       navigate("/checkout-success");
     } catch (error) {
       toast.error(error.message);

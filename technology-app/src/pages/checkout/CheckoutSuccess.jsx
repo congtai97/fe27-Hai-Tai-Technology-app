@@ -8,7 +8,7 @@ const CheckoutSuccess = () => {
         <p>Cảm ơn bạn vì đã mua hàng</p>
         <br />
 
-        <button className="--btn --btn-primary">
+        <button className="--btn --btn-success">
           <Link to="/order-history">Xem trạng thái đơn hàng</Link>
         </button>
       </div>

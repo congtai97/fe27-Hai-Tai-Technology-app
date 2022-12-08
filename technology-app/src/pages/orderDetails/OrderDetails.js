@@ -75,7 +75,11 @@ const OrderDetails = () => {
               <p>
                 <b>Trạng thái: </b> {order.orderStatus}
               </p>
+              {order.orderStatus != "Đã giao hàng" ? (
                 <button onClick={() => confirmDelete(order.id)} className="--btn --btn-success">Hủy Đơn Hàng</button>
+              ) : (
+                <></>
+              )}
             </div>
             <br />
             <table>
