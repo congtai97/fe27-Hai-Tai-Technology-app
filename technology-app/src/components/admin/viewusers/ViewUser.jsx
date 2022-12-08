@@ -57,7 +57,7 @@ const ViewUser = () => {
 
   const addUser = (e) => {
     e.preventDefault();
-    navigate("/admin/add-users/ADD");
+    navigate("/admin/add-users/AD");
   };
   return (
     <>
